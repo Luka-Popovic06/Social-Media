@@ -5,4 +5,43 @@
 html,
 body {
   height: 100%;
+  font-family: 'Montserrat', sans-serif;
+}
+/* Navigation */
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #6f74f4;
+  border-bottom: 1px solid #ff6347;
+  padding: 9px 16px;
+}
+.search-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(255, 255, 255);
+  height: 16px;
+  border-radius: 16px;
+  padding: 6px 16px;
+}
+.find-friends:focus {
+  outline: none;
+}
+.find-friends {
+  background-color: #fff;
+  height: 16px;
+  margin-left: 8px;
+  font-size: 16px;
+  border: none;
+}
+.search-icon {
+  width: 17px;
+  height: 17px;
+}
+.luka-img {
+  height: 50px;
+  width: 50px;
+  object-fit: cover;
+  border-radius: 50%;
 }
