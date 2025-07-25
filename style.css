@@ -182,3 +182,45 @@ h4 {
   object-fit: cover;
   border-radius: 16px;
 }
+/*Posts*/
+.posts {
+  list-style-type: none;
+}
+.post-item {
+  width: 520px;
+  background-color: #ff6347;
+  margin-bottom: 16px;
+  border-radius: 8px;
+  padding: 16px;
+}
+/*Post owner info*/
+.post-owner-info {
+  display: flex;
+}
+.img-post_owner {
+  height: 50px;
+  width: 50px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+.name_date-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 8px;
+}
+.post-owner-name {
+  font-size: 18px;
+  font-weight: 600;
+}
+.post-date {
+  font-size: 12px;
+  color: rgb(255, 255, 255);
+}
+.post-text {
+  overflow-wrap: break-word;
+  color: #3c42e1;
+  margin: 17px 0px;
+  font-size: 21px;
+  font-weight: bolder;
+}
