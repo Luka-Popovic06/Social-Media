@@ -131,3 +131,54 @@ main {
   background-color: #ff6347;
   transition: 0.3s;
 }
+/*Friends and comments*/
+.friends-section {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  background-color: rgb(217, 217, 255);
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+/*Friends*/
+.friends {
+  border-radius: 10px;
+  padding: 10px;
+  background-color: #fff;
+  width: 450px;
+  height: 370px;
+}
+.friends-list {
+  justify-content: space-evenly;
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+}
+h4 {
+  font-size: 24px;
+  margin: 8px 25px;
+}
+.number_of_friends {
+  font-size: 16px;
+  margin-left: 25px;
+  margin-bottom: 20px;
+}
+.friend {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+.friend-paragraph {
+  font-size: 12px;
+}
+.friend-img {
+  height: 100px;
+  width: 123px;
+  align-self: center;
+  justify-self: center;
+  object-fit: cover;
+  border-radius: 16px;
+}
