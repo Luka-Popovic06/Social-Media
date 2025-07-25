@@ -280,3 +280,43 @@ h4 {
   color: #fff;
   transition: 0.3s;
 }
+/*Add comment*/
+.add-comment {
+  display: flex;
+  align-items: center;
+}
+.comment-form {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+}
+.write-comment-input {
+  background-color: rgb(255, 255, 255);
+  padding-left: 9px;
+  margin-left: 8px;
+  height: 32px;
+  width: 70%;
+  font-size: 14px;
+  border: none;
+  border-radius: 15px;
+}
+.write-comment-input:focus {
+  outline: 2px;
+  outline-color: #3c42e1;
+  outline-style: solid;
+}
+.add-comment-btn {
+  background-color: rgb(128, 124, 255);
+  color: rgb(255, 255, 255);
+  font-weight: 600;
+  cursor: pointer;
+  width: 100px;
+  border-radius: 8px;
+  margin: 0px 8px;
+  border: #3c42e1 2px solid;
+  transition: 0.3s;
+}
+.add-comment-btn:hover {
+  background-color: #3c42e1;
+  transition: 0.3s;
+}
