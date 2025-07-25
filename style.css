@@ -93,3 +93,41 @@ main {
 .user-adres {
   font-size: 13px;
 }
+/*New post*/
+.new-post {
+  display: flex;
+  justify-content: center;
+  margin: 16px 0px;
+}
+.post-form {
+  display: flex;
+  width: 600px;
+}
+.post-input {
+  background-color: rgb(217, 217, 255);
+  padding-left: 8px;
+  margin-left: 8px;
+  height: 32px;
+  width: 100%;
+  font-size: 16px;
+  border: none;
+  border-radius: 15px;
+}
+.post-input:focus {
+  outline: none;
+}
+.submit-btn {
+  background-color: rgb(128, 124, 255);
+  color: rgb(255, 255, 255);
+  font-weight: 600;
+  cursor: pointer;
+  width: 200px;
+  border: #ff6347 2px solid;
+  border-radius: 8px;
+  margin: 0px 8px;
+  transition: 0.3s;
+}
+.submit-btn:hover {
+  background-color: #ff6347;
+  transition: 0.3s;
+}
