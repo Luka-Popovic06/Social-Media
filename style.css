@@ -224,3 +224,59 @@ h4 {
   font-size: 21px;
   font-weight: bolder;
 }
+.likes-comments-number {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13.5px;
+}
+.img-profile_small {
+  height: 50px;
+  width: 50px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+.comments-paragraph {
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+.comments-paragraph:hover {
+  color: #3c42e1;
+  transition: 0.3s;
+}
+/*BTN*/
+.post-btn {
+  display: flex;
+  justify-content: space-between;
+  margin: 8px 0 16px;
+  width: 100%;
+}
+.icon-btn {
+  width: 20px;
+  height: 20px;
+}
+.comment-btn,
+.like-btn {
+  color: #3c42e1;
+  display: flex;
+  gap: 10px;
+  width: 49%;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(245, 245, 245);
+  height: 27px;
+  cursor: pointer;
+  font-size: 14px;
+  border-top: 1px solid #3c42e1;
+  border-bottom: 1px solid #3c42e1;
+  border-radius: 8px;
+  border-left: none;
+  border-right: none;
+  transition: 0.3s;
+}
+.comment-btn:hover,
+.like-btn:hover {
+  background-color: #6063a0;
+  color: #fff;
+  transition: 0.3s;
+}
