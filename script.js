@@ -14,3 +14,6 @@ window.addEventListener('load', function () {
     domElements.main.classList.remove('hidden');
   }, 2000);
 });
+
+loadDefaultFriends(socialManager());
+loadDefaultPosts(socialManager());
