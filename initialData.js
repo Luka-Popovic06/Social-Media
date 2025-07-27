@@ -1,6 +1,6 @@
 import { friendCreator, postCreator } from './socialCreators.js';
 import { domElements } from './dom.js';
-import { friends, posts } from './input.js';
+import { friends, posts, comments } from './input.js';
 
 export function loadDefaultFriends(manager) {
   if (manager.getFriends().length > 0) return;

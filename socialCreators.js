@@ -33,13 +33,16 @@ export function postCreator(text, like, commentsNumber) {
   let whoLikePost = like;
   let postCommentsNumber = commentsNumber;
   let id = crypto.randomUUID();
+  let comments = [];
 
   const setPostCommentsNumber = number => (postCommentsNumber = number);
+  const getComments = () => comments;
   const getPostId = () => id;
   const getPostText = () => postText;
   const getWhoLikePost = () => whoLikePost;
   const getPostCommentsNumber = () => postCommentsNumber;
   return {
+    getComments,
     getPostId,
     getPostCommentsNumber,
     getPostText,
