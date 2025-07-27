@@ -47,3 +47,51 @@ export const posts = [
     commentsNumber: '3',
   },
 ];
+export const comments = [
+  {
+    image: 'profile4.jpg',
+    name: 'Majda Odzaklijevska',
+    commentText:
+      "Makes me ponder on the importance of staying true to one's moral compass.",
+    likesNumber: '3',
+  },
+  {
+    image: 'profile5.jpg',
+    name: 'Ethan Turner',
+    commentText:
+      "It's a reminder that sometimes the best option is to stay true to your principles, even if the choices seem challenging.",
+    likesNumber: '0',
+  },
+  {
+    image: 'marc-andreas.jpg',
+    name: 'Marc Andreas',
+    commentText:
+      'Choosing between evils can be a dilemma, but your stance adds a layer of wisdom to it.',
+    likesNumber: '1',
+  },
+  {
+    image: 'profile1.jpg',
+    name: 'Gordana Stouns',
+    commentText:
+      "Sometimes the choices we face are so tough, it's almost like navigating through shades of gray.",
+    likesNumber: '6',
+  },
+  {
+    image: 'profile2.jpg',
+    name: 'Hiroshi Tanaka',
+    commentText: "Sometimes, it's the small gestures that make someone a hero",
+    likesNumber: '0',
+  },
+  {
+    image: 'marc-andreas.jpg',
+    name: 'Marc Andreas',
+    commentText: 'Absolutely love this quote!',
+    likesNumber: '5',
+  },
+  {
+    image: 'profile1.jpg',
+    name: 'Gordana Stouns',
+    commentText: "Wow, this is so profound and inspiring! Couldn't agree more.",
+    likesNumber: '2',
+  },
+];
