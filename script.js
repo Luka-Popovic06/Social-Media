@@ -17,3 +17,8 @@ window.addEventListener('load', function () {
 
 loadDefaultFriends(socialManager());
 loadDefaultPosts(socialManager());
+
+domElements.postItem.addEventListener('click', function () {
+  if (e.target.closest('.post-item')) {
+  }
+});

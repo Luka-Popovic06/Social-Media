@@ -134,3 +134,21 @@ export function makePost(id, text, whoLike, commentsNumber) {
           </li>`;
   domElements.postsList.insertAdjacentHTML('afterbegin', html);
 }
+export function loadDefaultComment(commentsSection, indexOne, indexTwo) {
+  if (posts.length > 0) return;
+  const commentsArray = comments.slice();
+  commentsArray.forEach(function (comment) {
+    const newComment = commentCreator(
+      comment.text,
+      post.whoLike,
+      post.commentsNumber
+    );
+    commentsSection.pushPost(newComment);
+    makeComment(
+      newComment.getPostId(),
+      newComment.getPostText(),
+      newComment.getWhoLikePost(),
+      newComment.getPostCommentsNumber()
+    );
+  });
+}

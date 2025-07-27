@@ -50,3 +50,28 @@ export function postCreator(text, like, commentsNumber) {
     setPostCommentsNumber,
   };
 }
+export function commentCreator(img, name, comment, likes) {
+  let image = img;
+  let commentOwnerName = name;
+  let commentText = comment;
+  let likesNumber = likes;
+
+  const setImage = ownerImg => (image = ownerImg);
+  const setComment = comment => (commentText = comment);
+  const setLikesNumber = number => (likesNumber = number);
+  const setName = name => (commentOwnerName = name);
+  const getName = () => commentOwnerName;
+  const getImage = () => image;
+  const getComment = () => commentText;
+  const getLikesNumber = () => likesNumber;
+  return {
+    setComment,
+    setImage,
+    setLikesNumber,
+    getComment,
+    getImage,
+    getName,
+    getLikesNumber,
+    setName,
+  };
+}
