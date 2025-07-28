@@ -1,4 +1,8 @@
-import { friendCreator, postCreator } from './socialCreators.js';
+import {
+  friendCreator,
+  postCreator,
+  commentCreator,
+} from './socialCreators.js';
 import { domElements } from './dom.js';
 import { friends, posts, comments } from './input.js';
 
@@ -38,6 +42,10 @@ export function loadDefaultPosts(manager) {
       newPost.getPostText(),
       newPost.getWhoLikePost(),
       newPost.getPostCommentsNumber()
+    );
+    loadDefaultComment(
+      newPost.getPostCommentsNumber(),
+      newPost.getCommentsArray()
     );
   });
 }
@@ -129,26 +137,8 @@ export function makePost(id, text, whoLike, commentsNumber) {
               </form>
             </div>
             <div class="all-comment">
-              <ul class="comments-list"></ul>
+              <ul class="comments-list hidden" id=${crypto.randomUUID()}></ul>
             </div>
           </li>`;
   domElements.postsList.insertAdjacentHTML('afterbegin', html);
-}
-export function loadDefaultComment(commentsSection, indexOne, indexTwo) {
-  if (posts.length > 0) return;
-  const commentsArray = comments.slice();
-  commentsArray.forEach(function (comment) {
-    const newComment = commentCreator(
-      comment.text,
-      post.whoLike,
-      post.commentsNumber
-    );
-    commentsSection.pushPost(newComment);
-    makeComment(
-      newComment.getPostId(),
-      newComment.getPostText(),
-      newComment.getWhoLikePost(),
-      newComment.getPostCommentsNumber()
-    );
-  });
 }

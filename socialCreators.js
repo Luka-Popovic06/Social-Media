@@ -1,8 +1,15 @@
 export function socialManager() {
   let friends = [];
   let posts = [];
+  let post;
   const pushFriend = friend => friends.push(friend);
   const getFriends = () => friends;
+  function findPost(id) {
+    const selectPost = posts.find(p => p.getPostId() === id);
+    post = selectPost;
+  }
+
+  const getSelectPost = () => post;
 
   const pushPost = post => posts.push(post);
   const getPosts = () => posts;
@@ -11,6 +18,8 @@ export function socialManager() {
     getFriends,
     pushPost,
     getPosts,
+    findPost,
+    getSelectPost,
   };
 }
 
@@ -34,15 +43,21 @@ export function postCreator(text, like, commentsNumber) {
   let postCommentsNumber = commentsNumber;
   let id = crypto.randomUUID();
   let comments = [];
+  let comment;
+  function findComment(id) {
+    const selectComment = comments.find(comment => comment.getId() === id);
+    comment = selectComment;
+  }
 
   const setPostCommentsNumber = number => (postCommentsNumber = number);
-  const getComments = () => comments;
+  const getCommentsArray = () => comments;
   const getPostId = () => id;
   const getPostText = () => postText;
   const getWhoLikePost = () => whoLikePost;
   const getPostCommentsNumber = () => postCommentsNumber;
   return {
-    getComments,
+    findComment,
+    getCommentsArray,
     getPostId,
     getPostCommentsNumber,
     getPostText,
@@ -55,16 +70,20 @@ export function commentCreator(img, name, comment, likes) {
   let commentOwnerName = name;
   let commentText = comment;
   let likesNumber = likes;
+  let id = crypto.randomUUID();
 
   const setImage = ownerImg => (image = ownerImg);
   const setComment = comment => (commentText = comment);
   const setLikesNumber = number => (likesNumber = number);
   const setName = name => (commentOwnerName = name);
+
+  const getId = () => id;
   const getName = () => commentOwnerName;
   const getImage = () => image;
   const getComment = () => commentText;
   const getLikesNumber = () => likesNumber;
   return {
+    getId,
     setComment,
     setImage,
     setLikesNumber,

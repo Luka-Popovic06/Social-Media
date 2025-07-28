@@ -352,6 +352,7 @@ h4 {
 }
 .comment-item {
   display: flex;
+  margin-bottom: 20px;
 }
 .comment-info {
   padding-left: 15px;

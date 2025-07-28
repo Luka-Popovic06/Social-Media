@@ -5,20 +5,24 @@ import {
   makeFriend,
   loadDefaultPosts,
   makePost,
+  loadDefaultComment,
 } from './initialData.js';
-import { friendCreator, socialManager } from './socialCreators.js';
+import { friendCreator, socialManager, postCreator } from './socialCreators.js';
+import { comments } from './input.js';
 window.addEventListener('load', function () {
   setTimeout(function () {
     domElements.loader.classList.add('hidden');
     domElements.nav.classList.remove('hidden');
     domElements.main.classList.remove('hidden');
-  }, 2000);
+  }, 100);
 });
-
 loadDefaultFriends(socialManager());
 loadDefaultPosts(socialManager());
-
-domElements.postItem.addEventListener('click', function () {
-  if (e.target.closest('.post-item')) {
+const manager = socialManager();
+domElements.postsList.addEventListener('click', function (e) {
+  if (e.target.closest('.comments-paragraph')) {
+    const li = e.target.closest('.post-item');
+    const comment = li.querySelector('.comments-list');
+    comment.classList.toggle('hidden');
   }
 });
