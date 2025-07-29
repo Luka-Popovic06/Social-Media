@@ -162,3 +162,25 @@ export function loadDefaultComment(commentsArray) {
     );
   });
 }
+export function makeComment(id, img, name, comment, likesNumber) {
+  const commentsList = document.querySelector('.comments-list');
+
+  const html = ` <li class="comment-item " id=${id}>
+                  <img
+                    src="${img}"
+                    alt="marc-andreas"
+                    class="comment-img"
+                  />
+                  <div class="comment-info">
+                    <p class="comment-owner">${name}</p>
+                    <p class="comment-text">${comment}</p>
+                    <div class="comment-actions">
+                      <button type="button" class="like-btn_comment">❤️ Like</button>
+                      <div class="comment-stats">
+                        <span class="likes-count"><spam>${likesNumber}</spam> Likes</span>
+                      </div>
+                    </div>
+                  </div>
+                </li>`;
+  commentsList.insertAdjacentHTML('afterbegin', html);
+}
