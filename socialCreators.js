@@ -102,3 +102,33 @@ export function postCreator(text) {
     pushLikes,
   };
 }
+
+export function commentCreator(img, commentOwnerName, comment, likes) {
+  let image = img;
+  let name = commentOwnerName;
+  let commentText = comment;
+  let likesNumber = likes;
+  let id = crypto.randomUUID();
+
+  const setImage = ownerImg => (image = ownerImg);
+  const setText = comment => (commentText = comment);
+  const setLikesNumber = number => (likesNumber = number);
+  const setName = newName => (name = newName);
+
+  const getId = () => id;
+  const getName = () => name;
+  const getImage = () => image;
+  const getText = () => commentText;
+  const getLikesNumber = () => likesNumber;
+  return {
+    getId,
+    setText,
+    setImage,
+    setLikesNumber,
+    getText,
+    getImage,
+    getName,
+    getLikesNumber,
+    setName,
+  };
+}
