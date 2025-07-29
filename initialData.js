@@ -142,3 +142,23 @@ export function makePost(id, text, whoLike, commentsNumber) {
           </li>`;
   domElements.postsList.insertAdjacentHTML('afterbegin', html);
 }
+
+//Comment
+export function loadDefaultComment(commentsArray) {
+  commentsArray.forEach(comment => {
+    const defaultComment = commentCreator(
+      comment.image,
+      comment.name,
+      comment.commentText,
+      comment.likesNumber
+    );
+    commentsArray.push(defaultComment);
+    makeComment(
+      defaultComment.getId(),
+      defaultComment.getImage(),
+      defaultComment.getName(),
+      defaultComment.getText(),
+      defaultComment.getLikesNumber()
+    );
+  });
+}
