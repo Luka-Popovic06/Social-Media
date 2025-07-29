@@ -5,10 +5,9 @@ import {
   makeFriend,
   loadDefaultPosts,
   makePost,
-  loadDefaultComment,
 } from './initialData.js';
 import { friendCreator, socialManager, postCreator } from './socialCreators.js';
-import { comments } from './input.js';
+
 window.addEventListener('load', function () {
   setTimeout(function () {
     domElements.loader.classList.add('hidden');
@@ -16,13 +15,7 @@ window.addEventListener('load', function () {
     domElements.main.classList.remove('hidden');
   }, 100);
 });
-loadDefaultFriends(socialManager());
-loadDefaultPosts(socialManager());
 const manager = socialManager();
-domElements.postsList.addEventListener('click', function (e) {
-  if (e.target.closest('.comments-paragraph')) {
-    const li = e.target.closest('.post-item');
-    const comment = li.querySelector('.comments-list');
-    comment.classList.toggle('hidden');
-  }
-});
+loadDefaultFriends(manager);
+loadDefaultPosts(manager);
+//manager.getPosts().forEach(post => console.log(post.getCommentsArray()));

@@ -4,7 +4,7 @@ import {
   commentCreator,
 } from './socialCreators.js';
 import { domElements } from './dom.js';
-import { friends, posts, comments } from './input.js';
+import { friends, user } from './input.js';
 
 export function loadDefaultFriends(manager) {
   if (manager.getFriends().length > 0) return;
@@ -33,20 +33,20 @@ export function makeFriend(img, alt, name) {
 //posts
 export function loadDefaultPosts(manager) {
   if (manager.getPosts().length > 0) return;
-  const postsArray = posts;
-  postsArray.forEach(function (post) {
-    const newPost = postCreator(post.text, post.whoLike, post.commentsNumber);
+  const userPost = user.posts;
+  userPost.forEach(function (post) {
+    const newPost = postCreator(post.text);
+    newPost.pushLikes(post.likes);
+    newPost.pushComments(post.comments); //?
     manager.pushPost(newPost);
+    newPost.formatLikes(newPost.getLikes());
     makePost(
       newPost.getPostId(),
       newPost.getPostText(),
       newPost.getWhoLikePost(),
-      newPost.getPostCommentsNumber()
+      newPost.getComments().length
     );
-    loadDefaultComment(
-      newPost.getPostCommentsNumber(),
-      newPost.getCommentsArray()
-    );
+    loadDefaultComment(newPost.getComments());
   });
 }
 export function makePost(id, text, whoLike, commentsNumber) {
@@ -80,7 +80,7 @@ export function makePost(id, text, whoLike, commentsNumber) {
               </div>
             </div>
             <div class="post-btn">
-              <button type="button" class="like-btn">
+              <button type="button" class="like-btn" id=${crypto.randomUUID()}>
                 <svg
                   class="icon-btn"
                   xmlns="http://www.w3.org/2000/svg"
