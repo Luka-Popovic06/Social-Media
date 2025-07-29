@@ -39,3 +39,66 @@ export function friendCreator(img, alt, name) {
   };
 }
 //posts
+export function postCreator(text) {
+  let postText = text;
+  let id = crypto.randomUUID();
+  let comments = [];
+  let likes = [];
+  let friends;
+
+  const getPostId = () => id;
+  const getPostText = () => postText;
+  //Comment
+  let comment;
+  const findComment = id => {
+    const selectComment = comments.find(comment => comment.getId() === id);
+    comment = selectComment;
+  };
+  const getComments = () => comments;
+  const pushComments = commentsArray => {
+    commentsArray.forEach(comment => comments.push(comment));
+  };
+  const pushComment = comment => comments.push(comment);
+  const getComment = () => comment;
+  //const getCommentsArray = () => comments;
+  //Likes
+  const pushLike = like => likes.push(like);
+  const pushLikes = likesArray => {
+    likesArray.forEach(like => likes.push(like));
+  };
+  const getLikes = () => likes;
+  const formatLikes = array => {
+    if (array.length > 2) {
+      const firstTwoNames = array
+        .slice(0, 2)
+        .map(person => person.name)
+        .join(', ');
+      const rest = array.length - 2;
+      friends = `${firstTwoNames} and ${rest} others likes this post`;
+    } else if ((array.length = 2)) {
+      friends = `${array
+        .map(person => person.name)
+        .join('and ')} likes this post`;
+    } else if ((array.length = 1)) {
+      friends = `${array
+        .map(person => person.name)
+        .join(', ')} likes this post`;
+    }
+  };
+  const getWhoLikePost = () => friends;
+
+  return {
+    pushComment,
+    pushLike,
+    formatLikes,
+    getWhoLikePost,
+    getComments,
+    pushComments,
+    getComment,
+    findComment,
+    getPostId,
+    getPostText,
+    getLikes,
+    pushLikes,
+  };
+}
