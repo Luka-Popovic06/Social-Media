@@ -62,7 +62,10 @@ export function postCreator(text) {
   const getComment = () => comment;
   //const getCommentsArray = () => comments;
   //Likes
-  const pushLike = like => likes.push(like);
+  const pushLike = like => {
+    likes.push(like);
+    formatLikes(likes);
+  };
   const pushLikes = likesArray => {
     likesArray.forEach(like => likes.push(like));
   };
@@ -75,11 +78,11 @@ export function postCreator(text) {
         .join(', ');
       const rest = array.length - 2;
       friends = `${firstTwoNames} and ${rest} others likes this post`;
-    } else if ((array.length = 2)) {
+    } else if (array.length === 2) {
       friends = `${array
         .map(person => person.name)
-        .join('and ')} likes this post`;
-    } else if ((array.length = 1)) {
+        .join(', ')} likes this post`;
+    } else if (array.length === 1) {
       friends = `${array
         .map(person => person.name)
         .join(', ')} likes this post`;

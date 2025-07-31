@@ -127,3 +127,6 @@ export const user = {
     },
   ],
 };
+export const userName = {
+  name: 'Luka Popović',
+};
