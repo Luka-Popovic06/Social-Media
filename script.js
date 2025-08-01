@@ -50,6 +50,7 @@ domElements.postsList.addEventListener('click', function (e) {
     likesParagraph.textContent = selectedPost.getWhoLikePost();
   }
 });
+//kako da setujem vreme pre koliko je objavljen post
 domElements.postForm.addEventListener('submit', function (e) {
   e.preventDefault();
   const createdDate = new Date();
@@ -67,3 +68,14 @@ domElements.postForm.addEventListener('submit', function (e) {
   const dateParagraph = post.querySelector('.post-date');
   dateParagraph.textContent = timeAgo(createdDate);
 });
+function timeAgo(date) {
+  const seconds = Math.floor((new Date() - date) / 1000);
+  const minutes = Math.floor(seconds / 60);
+  const hours = Math.floor(minutes / 60);
+  const days = Math.floor(hours / 24);
+
+  if (seconds < 60) return `just now`;
+  else if (minutes < 60) return `${minutes}m ago`;
+  else if (hours < 24) return `${hours}h ago`;
+  else return `${days}d ago`;
+}
