@@ -2,6 +2,8 @@ export const domElements = {
   loader: document.querySelector('.loader'),
   friendsList: document.querySelector('.friends-list'),
   postsList: document.querySelector('.posts'),
+  postForm: document.querySelector('.post-form'),
+  postInput: document.querySelector('.post-input'),
   nav: document.querySelector('.navigation'),
   main: document.querySelector('.main'),
   commentParagraf: document.querySelector('.comments-paragraph'),

@@ -1,3 +1,4 @@
+import { domElements } from './dom.js';
 export const friends = [
   {
     image: 'marc-andreas.jpg',
@@ -130,3 +131,7 @@ export const user = {
 export const userName = {
   name: 'Luka Popović',
 };
+export let postText;
+domElements.postInput.addEventListener('input', function (e) {
+  postText = e.target.value;
+});

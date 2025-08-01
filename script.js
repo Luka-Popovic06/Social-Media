@@ -1,9 +1,13 @@
 'use strict';
 import { domElements } from './dom.js';
-import { loadDefaultFriends, loadDefaultPosts } from './initialData.js';
+import {
+  loadDefaultFriends,
+  loadDefaultPosts,
+  makePost,
+} from './initialData.js';
 import { friendCreator, socialManager, postCreator } from './socialCreators.js';
-import { userName } from './input.js';
-import { updatePost } from './socialService.js';
+import { userName, postText } from './input.js';
+//import { updatePost } from './socialService.js';
 window.addEventListener('load', function () {
   setTimeout(function () {
     domElements.loader.classList.add('hidden');
@@ -44,6 +48,22 @@ domElements.postsList.addEventListener('click', function (e) {
     //nalazenje likes paragrafa i njegovo abdejtovanje
     const likesParagraph = postElement.querySelector('.likes-paragraph');
     likesParagraph.textContent = selectedPost.getWhoLikePost();
-    console.log(selectedPost.getLikes().some(likes => likes === userName));
   }
+});
+domElements.postForm.addEventListener('submit', function (e) {
+  e.preventDefault();
+  const createdDate = new Date();
+
+  const newPost = postCreator(postText);
+  manager.pushPost(newPost);
+  newPost.formatLikes(newPost.getLikes());
+  makePost(
+    newPost.getPostId(),
+    newPost.getPostText(),
+    newPost.getWhoLikePost(),
+    newPost.getComments().length
+  );
+  const post = document.getElementById(newPost.getPostId());
+  const dateParagraph = post.querySelector('.post-date');
+  dateParagraph.textContent = timeAgo(createdDate);
 });

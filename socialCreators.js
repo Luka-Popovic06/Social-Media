@@ -86,6 +86,8 @@ export function postCreator(text) {
       friends = `${array
         .map(person => person.name)
         .join(', ')} likes this post`;
+    } else if (array.length === 0) {
+      friends = '';
     }
   };
   const getWhoLikePost = () => friends;
