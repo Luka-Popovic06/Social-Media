@@ -38,6 +38,7 @@ export function friendCreator(img, alt, name) {
     getFriendName,
   };
 }
+
 //posts
 export function postCreator(text) {
   let postText = text;
@@ -45,10 +46,14 @@ export function postCreator(text) {
   let comments = [];
   let likes = [];
   let friends;
+  //let postDate = date;
 
   const getPostId = () => id;
   const getPostText = () => postText;
-  //Comment
+  //const setDate = newDate => (postDate = newDate);
+  //const getDate = () => postDate;
+
+  //Comments
   let comment;
   const findComment = id => {
     const selectComment = comments.find(comment => comment.getId() === id);
@@ -61,6 +66,7 @@ export function postCreator(text) {
   const pushComment = comment => comments.push(comment);
   const getComment = () => comment;
   //const getCommentsArray = () => comments;
+
   //Likes
   const pushLike = like => {
     likes.push(like);
@@ -105,6 +111,8 @@ export function postCreator(text) {
     getPostText,
     getLikes,
     pushLikes,
+    //setDate,
+    //getDate,
   };
 }
 
@@ -113,6 +121,7 @@ export function commentCreator(img, commentOwnerName, comment, likes) {
   let name = commentOwnerName;
   let commentText = comment;
   let likesNumber = likes;
+  //let likes = [];
   let id = crypto.randomUUID();
 
   const setImage = ownerImg => (image = ownerImg);

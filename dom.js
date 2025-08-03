@@ -4,6 +4,7 @@ export const domElements = {
   postsList: document.querySelector('.posts'),
   postForm: document.querySelector('.post-form'),
   postInput: document.querySelector('.post-input'),
+  postSubmitBtn: document.querySelector('.submit-btn'),
   nav: document.querySelector('.navigation'),
   main: document.querySelector('.main'),
   commentParagraf: document.querySelector('.comments-paragraph'),
