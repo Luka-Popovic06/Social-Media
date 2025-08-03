@@ -87,3 +87,40 @@ domElements.postForm.addEventListener('submit', function (e) {
 });
 
 //Dodavanje komentara
+domElements.postsList.addEventListener('submit', function (e) {
+  if (!e.target.classList.contains('comment-form')) return;
+
+  e.preventDefault();
+
+  const form = e.target;
+  const input = form.querySelector('.write-comment-input');
+  const commentText = input.value;
+  if (!commentText) return;
+  const postElement = form.closest('.post-item');
+  const postId = postElement.id;
+
+  manager.findPost(postId);
+  const selectedPost = manager.getSelectPost();
+
+  const newComment = commentCreator(
+    userName.image,
+    userName.name,
+    commentText,
+    userName.likesNumber
+  );
+  selectedPost.pushComment(newComment);
+  makeComment(
+    postId,
+    newComment.getId(),
+    newComment.getImage(),
+    newComment.getName(),
+    newComment.getText(),
+    newComment.getLikesNumber()
+  );
+  const commentNumber = postElement.querySelector('.comments-number');
+  commentNumber.textContent = selectedPost.getComments().length;
+  input.value = '';
+  const li = e.target.closest('.post-item');
+  const comment = li.querySelector('.comments-list');
+  comment.classList.remove('hidden');
+});
