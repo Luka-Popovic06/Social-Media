@@ -44,23 +44,26 @@ domElements.postsList.addEventListener('click', function (e) {
     selectedPost.formatLikes(selectedPost.getLikes());
     const likesParagraph = postElement.querySelector('.likes-paragraph');
     likesParagraph.textContent = selectedPost.getWhoLikePost();
+    //bitno
   } else if (e.target.closest('.like-btn_comment')) {
     const likeBtn = e.target.closest('.like-btn_comment');
     const commentElement = likeBtn.closest('.comment-item');
     const commentId = commentElement.id;
-    const postElement = likeBtn.closest('.post-item');
-    const postId = postElement.id;
 
-    manager.findPost(postId);
-    const selectedPost = manager.getSelectPost();
-    selectedPost.findComment(commentId);
-    const comment = selectedPost.getComment();
-    console.log(comment);
-    const oldLikes = comment.getLikesNumber();
-    comment.setLikesNumber(oldLikes + 1);
+    const postElement = likeBtn.closest('.post-item');
+    const nadjenPost = postElement.id;
+    manager.findPost(nadjenPost);
+    const uFuluPost = manager.getSelectPost();
+    uFuluPost.findComment(commentId);
+    const selectComment = uFuluPost.getComment();
+    selectComment.getLikesArray().push(userName.likesArray[0]);
 
     const likesDisplay = commentElement.querySelector('.likes-count');
-    likesDisplay.textContent = comment.getLikesNumber();
+    const whoLikeBox = commentElement.querySelector('.whoLike');
+    console.log(selectComment.getLikesArray());
+    likesDisplay.textContent = `${selectComment.getLikesArray().length} likes`;
+    selectComment.showLikesOnScrean(selectComment.getLikesArray());
+    whoLikeBox.textContent = selectComment.getWhoLikeComment();
   }
 });
 
@@ -87,40 +90,3 @@ domElements.postForm.addEventListener('submit', function (e) {
 });
 
 //Dodavanje komentara
-domElements.postsList.addEventListener('submit', function (e) {
-  if (!e.target.classList.contains('comment-form')) return;
-
-  e.preventDefault();
-
-  const form = e.target;
-  const input = form.querySelector('.write-comment-input');
-  const commentText = input.value;
-  if (!commentText) return;
-  const postElement = form.closest('.post-item');
-  const postId = postElement.id;
-
-  manager.findPost(postId);
-  const selectedPost = manager.getSelectPost();
-
-  const newComment = commentCreator(
-    userName.image,
-    userName.name,
-    commentText,
-    userName.likesNumber
-  );
-  selectedPost.pushComment(newComment);
-  makeComment(
-    postId,
-    newComment.getId(),
-    newComment.getImage(),
-    newComment.getName(),
-    newComment.getText(),
-    newComment.getLikesNumber()
-  );
-  const commentNumber = postElement.querySelector('.comments-number');
-  commentNumber.textContent = selectedPost.getComments().length;
-  input.value = '';
-  const li = e.target.closest('.post-item');
-  const comment = li.querySelector('.comments-list');
-  comment.classList.remove('hidden');
-});

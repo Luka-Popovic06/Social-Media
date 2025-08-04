@@ -44,21 +44,3 @@ export function loadDefaultPosts(manager) {
 }
 
 //Comment
-export function loadDefaultComment(commentsArray, PostId) {
-  commentsArray.forEach(comment => {
-    const defaultComment = commentCreator(
-      comment.image,
-      comment.name,
-      comment.commentText,
-      comment.likesNumber
-    );
-    makeComment(
-      PostId,
-      defaultComment.getId(),
-      defaultComment.getImage(),
-      defaultComment.getName(),
-      defaultComment.getText(),
-      defaultComment.getLikesNumber()
-    );
-  });
-}

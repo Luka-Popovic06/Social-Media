@@ -95,7 +95,16 @@ export function makePost(id, text, whoLike, commentsNumber) {
   domElements.postsList.insertAdjacentHTML('afterbegin', html);
 }
 //Comments
-export function makeComment(postId, id, img, name, comment, likesNumber) {
+export function makeComment(
+  postId,
+  id,
+  img,
+  firstName,
+  lastName,
+  comment,
+  likesNumber,
+  showLikesOnScrean
+) {
   const postElement = document.getElementById(postId);
   const commentsList = postElement.querySelector('.comments-list');
 
@@ -106,12 +115,13 @@ export function makeComment(postId, id, img, name, comment, likesNumber) {
                     class="comment-img"
                   />
                   <div class="comment-info">
-                    <p class="comment-owner">${name}</p>
+                    <p class="comment-owner">${firstName} ${lastName}</p>
                     <p class="comment-text">${comment}</p>
                     <div class="comment-actions">
                       <button type="button" class="like-btn_comment">❤️ Like</button>
                       <div class="comment-stats">
-                        <span class="likes-count">${likesNumber} Likes</span>
+                        <p class="likes-count">${likesNumber} Likes</p>
+                        <p class="whoLike hidden">${showLikesOnScrean}</p>
                       </div>
                     </div>
                   </div>

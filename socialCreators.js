@@ -55,17 +55,29 @@ export function postCreator(text) {
 
   //Comments
   let comment;
+  const pushComments = commentsArray => {
+    commentsArray.forEach(comment => {
+      const defaultComment = commentCreator(
+        comment.image,
+        comment.firstName,
+        comment.lastName,
+        comment.commentText,
+        comment.likesArray
+      );
+      defaultComment.pushLikes(defaultComment.getLikesArray());
+      //console.log(defaultComment.getLikesArray());
+      defaultComment.showLikesOnScrean(defaultComment.getLikesArray());
+      comments.push(defaultComment);
+    });
+  };
+  const pushComment = comment => comments.push(comment);
   const findComment = id => {
     const selectComment = comments.find(comment => comment.getId() === id);
     comment = selectComment;
   };
-  const getComments = () => comments;
-  const pushComments = commentsArray => {
-    commentsArray.forEach(comment => comments.push(comment));
-  };
-  const pushComment = comment => comments.push(comment);
   const getComment = () => comment;
-  //const getCommentsArray = () => comments;
+  const getComments = () => comments;
+  //ja pusham comment bez id
 
   //Likes
   const pushLike = like => {
@@ -113,36 +125,5 @@ export function postCreator(text) {
     pushLikes,
     //setDate,
     //getDate,
-  };
-}
-
-export function commentCreator(img, commentOwnerName, comment, likes) {
-  let image = img;
-  let name = commentOwnerName;
-  let commentText = comment;
-  let likesNumber = likes;
-  //let likes = [];
-  let id = crypto.randomUUID();
-
-  const setImage = ownerImg => (image = ownerImg);
-  const setText = comment => (commentText = comment);
-  const setLikesNumber = number => (likesNumber = number);
-  const setName = newName => (name = newName);
-
-  const getId = () => id;
-  const getName = () => name;
-  const getImage = () => image;
-  const getText = () => commentText;
-  const getLikesNumber = () => likesNumber;
-  return {
-    getId,
-    setText,
-    setImage,
-    setLikesNumber,
-    getText,
-    getImage,
-    getName,
-    getLikesNumber,
-    setName,
   };
 }
