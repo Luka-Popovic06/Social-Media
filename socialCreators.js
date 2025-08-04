@@ -127,3 +127,47 @@ export function postCreator(text) {
     //getDate,
   };
 }
+
+export function commentCreator(
+  img,
+  commentOwnerFirstName,
+  commentOwnerLastName,
+  comment,
+  likes
+) {
+  let image = img;
+  let firstName = commentOwnerFirstName;
+  let lastName = commentOwnerLastName;
+  let commentText = comment;
+  let arrayOfLikes = likes;
+  let likesOnComments = [];
+  let id = crypto.randomUUID();
+  let friends;
+
+  const getId = () => id;
+  const getFirstName = () => firstName;
+  const getLastName = () => lastName;
+  const getImage = () => image;
+  const getText = () => commentText;
+  const getLikesArray = () => arrayOfLikes;
+  const pushLike = like => likesOnComments.push(like);
+  const pushLikes = likesArray => {
+    likesArray.forEach(like => likesOnComments.push(like));
+  };
+  const showLikesOnScrean = array => {
+    friends = array.map(p => `${p.firstName} ${p.lastName}`).join(', ');
+  };
+  const getWhoLikeComment = () => friends;
+  return {
+    pushLike,
+    pushLikes,
+    getId,
+    getText,
+    getImage,
+    getFirstName,
+    getLastName,
+    getLikesArray,
+    showLikesOnScrean,
+    getWhoLikeComment,
+  };
+}
