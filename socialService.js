@@ -14,7 +14,6 @@ export function makeFriend(img, alt, name) {
 }
 //Posts
 export function makePost(id, text, whoLike, commentsNumber) {
-  //console.log(date);
   const html = `<li class="post-item" id=${id}>
             <div class="post">
               <div class="post-owner-info">

@@ -32,31 +32,31 @@ export const friends = [
     name: 'Gordana Stouns',
   },
 ];
-////
-//export let year = new Date(Date.now() - 1000 * 60 * 60 * 24 * 365);
+
 export const user = {
   posts: [
     {
-      //id,
-      //date: year,
       text: "If I'm to choose between one evil and another, I'd rather not choose at all.",
       likes: [
         {
-          name: 'Kilibarda Petrovska',
+          firstName: 'Kilibarda',
+          lastName: 'Petrovska',
         },
         {
-          name: 'Hiroshi Tanaka',
+          firstName: 'Hiroshi',
+          lastName: 'Tanaka',
         },
         {
-          name: 'Gordana Stouns',
+          firstName: 'Gordana',
+          lastName: 'Stouns',
         },
         {
-          name: 'Marc Andreas',
+          firstName: 'Marc',
+          lastName: 'Andreas',
         },
       ],
       comments: [
         {
-          //id: crypto.randomUUID(),
           image: 'profile4.jpg',
           firstName: 'Majda',
           lastName: 'Odzaklijevska',
@@ -75,10 +75,9 @@ export const user = {
               firstName: 'Marc',
               lastName: 'Andreas',
             },
-          ], //prava 3 imena
+          ],
         },
         {
-          //id: crypto.randomUUID(),
           image: 'profile5.jpg',
           firstName: 'Ethan',
           lastName: 'Turner',
@@ -87,7 +86,6 @@ export const user = {
           likesArray: [],
         },
         {
-          //id: crypto.randomUUID(),
           image: 'marc-andreas.jpg',
           firstName: 'Marc',
           lastName: 'Andreas',
@@ -101,7 +99,6 @@ export const user = {
           ],
         },
         {
-          //id: crypto.randomUUID(),
           image: 'profile1.jpg',
           firstName: 'Gordana',
           lastName: 'Stouns',
@@ -129,31 +126,29 @@ export const user = {
       ],
     },
     {
-      //id,
-      //date: year,
       text: "It's not who I am underneath, but what I do that defines me.",
       likes: [
         {
-          name: 'Ethan Turner',
+          firstName: 'Ethan',
+          lastName: 'Turner',
         },
       ],
       comments: [],
     },
     {
-      //id,
-      //date: year,
       text: "A true hero isn't measured by the size of his strength but by the strength of his heart",
       likes: [
         {
-          name: 'Gordana Stouns ',
+          firstName: 'Gordana',
+          lastName: 'Stouns',
         },
         {
-          name: 'Hiroshi Tanaka',
+          firstName: 'Hiroshi',
+          lastName: 'Tanaka',
         },
       ],
       comments: [
         {
-          //id: crypto.randomUUID(),
           image: 'profile2.jpg',
           firstName: 'Hiroshi',
           lastName: 'Tanaka',
@@ -162,7 +157,6 @@ export const user = {
           likesArray: [],
         },
         {
-          //id: crypto.randomUUID(),
           image: 'marc-andreas.jpg',
           firstName: 'Marc',
           lastName: 'Andreas',
@@ -187,7 +181,6 @@ export const user = {
           ],
         },
         {
-          //id: crypto.randomUUID(),
           image: 'profile1.jpg',
           firstName: 'Gordana',
           lastName: 'Stouns',
@@ -209,7 +202,6 @@ export const user = {
   ],
 };
 export const userName = {
-  name: 'Luka Popović',
   firstName: 'Luka',
   lastName: 'Popović',
   image: 'IMG_6827-removebg-preview.jpg',
@@ -219,7 +211,6 @@ export const userName = {
       lastName: 'Popović',
     },
   ],
-  defoltArray: [],
 };
 export let postText;
 domElements.postInput.addEventListener('input', function (e) {

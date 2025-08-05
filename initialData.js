@@ -26,19 +26,16 @@ export function loadDefaultPosts(manager) {
   const userPost = user.posts;
   userPost.forEach(function (post) {
     const newPost = postCreator(post.text);
-    //console.log(post.date);
     newPost.pushLikes(post.likes);
-    newPost.pushComments(post.comments); //?
+    newPost.pushComments(post.comments);
     manager.pushPost(newPost);
     newPost.formatLikes(newPost.getLikes());
     makePost(
       newPost.getPostId(),
-      //newPost.getDate(),
       newPost.getPostText(),
       newPost.getWhoLikePost(),
       newPost.getComments().length
     );
-    //console.log(newPost.getDate());
     loadDefaultComment(newPost.getComments(), newPost.getPostId());
   });
 }

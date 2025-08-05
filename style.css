@@ -397,8 +397,7 @@ h4 {
   transition: 0.3s;
 }
 .like-btn_comment:hover {
-  background-color: #6063a0;
-  color: #fff;
+  color: #ff6347;
   transition: 0.3s;
 }
 .comment-stats {
