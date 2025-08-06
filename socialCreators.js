@@ -40,12 +40,20 @@ export function friendCreator(img, alt, name) {
 }
 
 //posts
-export function postCreator(text) {
+export function postCreator(text, date) {
   let postText = text;
   let id = crypto.randomUUID();
   let comments = [];
   let likes = [];
+  //let postMilliseconds = milliseconds;
+  let postDate = date;
   let friends;
+
+  //const pushDate = newDate => date.push(newDate);
+  //const getPostMilliseconds = () => postMilliseconds;
+  //const getDatesArray = () => date;
+  const getPostDate = () => postDate;
+  //
 
   const getPostId = () => id;
   const getPostText = () => postText;
@@ -113,6 +121,7 @@ export function postCreator(text) {
     getPostText,
     getLikes,
     pushLikes,
+    getPostDate,
   };
 }
 

@@ -1,4 +1,27 @@
 import { domElements } from './dom.js';
+//Time
+export function extractDateParts(date) {
+  ////???
+  const godina = date.getFullYear();
+  const mesec = date.getMonth();
+  const danUMesecu = date.getDate();
+  const danUNedelji = date.getDay();
+  const sat = date.getHours();
+  const minut = date.getMinutes();
+  const sekunde = date.getSeconds();
+  const milisekunde = date.getMilliseconds();
+
+  return {
+    godina,
+    mesec,
+    danUMesecu,
+    danUNedelji,
+    sat,
+    minut,
+    sekunde,
+    milisekunde,
+  };
+}
 
 //Friends
 export function makeFriend(img, alt, name) {

@@ -1,7 +1,7 @@
 'use strict';
 import { domElements } from './dom.js';
 import { loadDefaultFriends, loadDefaultPosts } from './initialData.js';
-import { makePost, makeComment } from './socialService.js';
+import { makePost, makeComment, texTame, prikaz } from './socialService.js';
 import {
   socialManager,
   postCreator,
@@ -19,7 +19,18 @@ window.addEventListener('load', function () {
 const manager = socialManager();
 loadDefaultFriends(manager);
 loadDefaultPosts(manager);
+console.log(texTame(new Date()));
+const datum = new Date();
 
+// Postavljanje svih parametara
+datum.setFullYear(2025); // godina
+datum.setMonth(7); // jul (meseci su 0–11)
+//datum.setDate(20); // 20. dan u mesecu
+datum.setHours(18); // 14h (2 popodne)//problem kad je d1 manji od d2
+datum.setMinutes(30); // 30 minuta
+datum.setSeconds(15); // 15 sekundi
+datum.setMilliseconds(500);
+prikaz(texTame(new Date()), texTame(datum));
 domElements.postsList.addEventListener('click', function (e) {
   if (e.target.closest('.comments-paragraph')) {
     const li = e.target.closest('.post-item');
@@ -96,9 +107,8 @@ domElements.postSubmitBtn.addEventListener('click', function () {
 
 domElements.postForm.addEventListener('submit', function (e) {
   e.preventDefault();
-  const createdDate = Date();
 
-  const newPost = postCreator(postText);
+  const newPost = postCreator(postText, new Date());
   manager.pushPost(newPost);
   newPost.formatLikes(newPost.getLikes());
   makePost(
@@ -107,6 +117,13 @@ domElements.postForm.addEventListener('submit', function (e) {
     newPost.getWhoLikePost(),
     newPost.getComments().length
   );
+  const postItem = document.querySelectorAll('.post-item');
+  postItem.forEach(function (post) {
+    const createdDate = new Date();
+    const stariDatum = post.getPostDate();
+    const d1 = texTame(createdDate);
+    const d2 = texTame(stariDatum);
+  });
   const post = document.getElementById(newPost.getPostId());
   const dateParagraph = post.querySelector('.post-date');
   dateParagraph.textContent = createdDate;
@@ -154,3 +171,6 @@ domElements.postsList.addEventListener('submit', function (e) {
   const comment = li.querySelector('.comments-list');
   comment.classList.remove('hidden');
 });
+//ubaci btn edit
+//kad je post editovan neka mu pise edited
+//formatiraj datume
