@@ -22,6 +22,24 @@ export function extractDateParts(date) {
     milisekunde,
   };
 }
+export function formatTimeAgo(d1, d2) {
+  let text;
+  if (d1.godina !== d2.godina) {
+    text = `about ${d1.godina - d2.godina} year ago`;
+  } else if (d1.mesec !== d2.mesec) {
+    text = `${d1.mesec - d2.mesec} months ago`;
+  } else if (d1.dani !== d2.dani) {
+    text = `${d1.dani - d2.dani} days ago`;
+  } else if (d1.sat !== d2.sat) {
+    text = `about ${d1.sat - d2.sat}  22 hours ago`;
+  } else if (d1.minut !== d2.minut) {
+    text = `${d1.minut - d2.minut} minutes ago`;
+  } else if (d1.sekunde !== d2.sekunde) {
+    text = `less than a minute ag`;
+  }
+  console.log(text);
+  return text;
+}
 
 //Friends
 export function makeFriend(img, alt, name) {
