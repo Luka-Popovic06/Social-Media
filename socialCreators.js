@@ -45,13 +45,13 @@ export function postCreator(text, date) {
   let id = crypto.randomUUID();
   let comments = [];
   let likes = [];
-  //let postMilliseconds = milliseconds;
+  let postMilliseconds = milliseconds;
   let postDate = date;
   let friends;
 
   //const pushDate = newDate => date.push(newDate);
-  //const getPostMilliseconds = () => postMilliseconds;
-  //const getDatesArray = () => date;
+  const getPostMilliseconds = () => postMilliseconds;
+  const getDatesArray = () => date;
   const getPostDate = () => postDate;
   //
 
