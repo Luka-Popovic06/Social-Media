@@ -1,45 +1,6 @@
 import { domElements } from './dom.js';
-//Time
-export function extractDateParts(date) {
-  ////???
-  const godina = date.getFullYear();
-  const mesec = date.getMonth();
-  const danUMesecu = date.getDate();
-  const danUNedelji = date.getDay();
-  const sat = date.getHours();
-  const minut = date.getMinutes();
-  const sekunde = date.getSeconds();
-  const milisekunde = date.getMilliseconds();
 
-  return {
-    godina,
-    mesec,
-    danUMesecu,
-    danUNedelji,
-    sat,
-    minut,
-    sekunde,
-    milisekunde,
-  };
-}
-export function formatTimeAgo(d1, d2) {
-  let text;
-  if (d1.godina !== d2.godina) {
-    text = `about ${d1.godina - d2.godina} year ago`;
-  } else if (d1.mesec !== d2.mesec) {
-    text = `${d1.mesec - d2.mesec} months ago`;
-  } else if (d1.dani !== d2.dani) {
-    text = `${d1.dani - d2.dani} days ago`;
-  } else if (d1.sat !== d2.sat) {
-    text = `about ${d1.sat - d2.sat}  22 hours ago`;
-  } else if (d1.minut !== d2.minut) {
-    text = `${d1.minut - d2.minut} minutes ago`;
-  } else if (d1.sekunde !== d2.sekunde) {
-    text = `less than a minute ag`;
-  }
-  console.log(text);
-  return text;
-}
+//Time
 
 //Friends
 export function makeFriend(img, alt, name) {
@@ -66,11 +27,17 @@ export function makePost(id, text, whoLike, commentsNumber) {
                 <div class="name_date-box">
                   <p class="post-owner-name">Luka Popović</p>
                   <p class="post-date">about 1 year ago</p>
+                  <p class="text-edited hidden">Edited</p>
                 </div>
+                
+                <button type="button" class="btn-edit"><svg class="icon-btn" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+  <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10" />
+</svg>
+</button>
               </div>
-              <p class="post-text">
-              ${text}
-              </p>
+              <div class="post-text-box">
+              <p class="post-text">${text}</p>
+              </div>
               <div class="likes-comments-number">
                 <div class="likes-box">
                   <p class="likes-paragraph">
@@ -168,3 +135,5 @@ export function makeComment(
                 </li>`;
   commentsList.insertAdjacentHTML('afterbegin', html);
 }
+//toggle
+//editovanje komentara

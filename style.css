@@ -214,6 +214,8 @@ h4 {
 /*Post owner info*/
 .post-owner-info {
   display: flex;
+  align-items: center;
+  position: relative;
 }
 .img-post_owner {
   height: 50px;
@@ -418,6 +420,27 @@ h4 {
   color: #fdfdfd;
   background-color: #6f74f4;
 }
+.btn-edit {
+  /* tamnoplava */
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: #1a237e; /* beli tekst */
+  border: none;
+  font-size: 30px;
+  background-color: #ff6347;
+  line-height: 1;
+  padding: 0;
+  margin: 0;
+  display: inline-block;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-edit:hover {
+  color: #3949ab; /* svetlija nijansa plave */
+}
+
 .comment-stats:hover .whoLike {
   display: block;
 }

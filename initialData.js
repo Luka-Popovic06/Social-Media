@@ -25,7 +25,7 @@ export function loadDefaultPosts(manager) {
   if (manager.getPosts().length > 0) return;
   const userPost = user.posts;
   userPost.forEach(function (post) {
-    const newPost = postCreator(post.text);
+    const newPost = postCreator(post.text, post.date);
     newPost.pushLikes(post.likes);
     newPost.pushComments(post.comments);
     manager.pushPost(newPost);

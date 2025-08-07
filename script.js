@@ -1,36 +1,32 @@
 'use strict';
 import { domElements } from './dom.js';
 import { loadDefaultFriends, loadDefaultPosts } from './initialData.js';
-import { makePost, makeComment, texTame, prikaz } from './socialService.js';
+import {
+  makePost,
+  makeComment,
+  extractDateParts,
+  formatTimeAgo,
+  editMode,
+} from './socialService.js';
 import {
   socialManager,
   postCreator,
   commentCreator,
 } from './socialCreators.js';
 import { userName, postText } from './input.js';
-
+const manager = socialManager();
 window.addEventListener('load', function () {
   setTimeout(function () {
     domElements.loader.classList.add('hidden');
     domElements.nav.classList.remove('hidden');
     domElements.main.classList.remove('hidden');
   }, 100);
+  setInterval(updateAllPostTimes, 60 * 1000);
 });
-const manager = socialManager();
+
 loadDefaultFriends(manager);
 loadDefaultPosts(manager);
-console.log(texTame(new Date()));
-const datum = new Date();
 
-// Postavljanje svih parametara
-datum.setFullYear(2025); // godina
-datum.setMonth(7); // jul (meseci su 0–11)
-//datum.setDate(20); // 20. dan u mesecu
-datum.setHours(18); // 14h (2 popodne)//problem kad je d1 manji od d2
-datum.setMinutes(30); // 30 minuta
-datum.setSeconds(15); // 15 sekundi
-datum.setMilliseconds(500);
-prikaz(texTame(new Date()), texTame(datum));
 domElements.postsList.addEventListener('click', function (e) {
   if (e.target.closest('.comments-paragraph')) {
     const li = e.target.closest('.post-item');
@@ -62,7 +58,6 @@ domElements.postsList.addEventListener('click', function (e) {
       selectedPost.getLikes().push(userName.likesArray[0]);
     }
     selectedPost.formatLikes(selectedPost.getLikes());
-    console.log(selectedPost.getLikes());
     const likesParagraph = postElement.querySelector('.likes-paragraph');
     likesParagraph.textContent = selectedPost.getWhoLikePost();
     //comment likes
@@ -94,7 +89,6 @@ domElements.postsList.addEventListener('click', function (e) {
     }
     const likesDisplay = commentElement.querySelector('.likes-count');
     const whoLikeBox = commentElement.querySelector('.whoLike');
-    console.log(selectComment.getLikesArray());
     likesDisplay.textContent = `${selectComment.getLikesArray().length} likes`;
     selectComment.showLikesOnScrean(selectComment.getLikesArray());
     whoLikeBox.textContent = selectComment.getWhoLikeComment();
@@ -117,16 +111,7 @@ domElements.postForm.addEventListener('submit', function (e) {
     newPost.getWhoLikePost(),
     newPost.getComments().length
   );
-  const postItem = document.querySelectorAll('.post-item');
-  postItem.forEach(function (post) {
-    const createdDate = new Date();
-    const stariDatum = post.getPostDate();
-    const d1 = texTame(createdDate);
-    const d2 = texTame(stariDatum);
-  });
-  const post = document.getElementById(newPost.getPostId());
-  const dateParagraph = post.querySelector('.post-date');
-  dateParagraph.textContent = createdDate;
+  updateAllPostTimes();
 });
 
 //Dodavanje komentara
@@ -171,6 +156,4 @@ domElements.postsList.addEventListener('submit', function (e) {
   const comment = li.querySelector('.comments-list');
   comment.classList.remove('hidden');
 });
-//ubaci btn edit
-//kad je post editovan neka mu pise edited
-//formatiraj datume
+//time

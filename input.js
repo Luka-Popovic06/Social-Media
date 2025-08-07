@@ -36,6 +36,7 @@ export const friends = [
 export const user = {
   posts: [
     {
+      date: new Date(2024, 3, 3, 3, 3),
       text: "If I'm to choose between one evil and another, I'd rather not choose at all.",
       likes: [
         {
@@ -126,6 +127,7 @@ export const user = {
       ],
     },
     {
+      date: new Date(2024, 3, 3, 3, 3),
       text: "It's not who I am underneath, but what I do that defines me.",
       likes: [
         {
@@ -136,6 +138,7 @@ export const user = {
       comments: [],
     },
     {
+      date: new Date(2024, 3, 3, 3, 3),
       text: "A true hero isn't measured by the size of his strength but by the strength of his heart",
       likes: [
         {
