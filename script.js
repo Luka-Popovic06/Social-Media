@@ -164,3 +164,17 @@ domElements.postsList.addEventListener('submit', function (e) {
   comment.classList.remove('hidden');
 });
 //time
+function updateAllPostTimes() {
+  const allPosts = manager.getPosts();
+  const currentTime = new Date();
+
+  allPosts.forEach(post => {
+    const d1 = extractDateParts(currentTime);
+    const d2 = extractDateParts(post.getPostDate());
+    const text = formatTimeAgo(d1, d2);
+
+    const domPost = document.getElementById(post.getPostId());
+    const dateElement = domPost.querySelector('.post-date');
+    if (dateElement) dateElement.textContent = text;
+  });
+}
