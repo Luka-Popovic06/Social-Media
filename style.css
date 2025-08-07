@@ -455,3 +455,30 @@ h4 {
   background-color: #ff6347;
   margin-left: 10px;
 }
+.cancel-btn {
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  background-color: #ff6347;
+  margin-left: 10px;
+}
+.edit-form {
+  width: 100%;
+}
+.edit-input {
+  overflow-wrap: break-word;
+  color: #3c42e1;
+  margin: 17px 0px;
+  font-size: 21px;
+  font-weight: bolder;
+  width: 80%;
+}
+.edit-input:focus {
+  outline-color: #3c42e1;
+}
+.comment-stats:hover .whoLike {
+  display: block;
+}
+.hidden {
+  display: none;
+}
