@@ -440,10 +440,18 @@ h4 {
 .btn-edit:hover {
   color: #3949ab; /* svetlija nijansa plave */
 }
-
-.comment-stats:hover .whoLike {
-  display: block;
+.post-text-box {
+  display: flex;
+  align-items: center;
 }
-.hidden {
-  display: none;
+.text-edited {
+  color: #d31e1e;
+  font-weight: 700;
+}
+.finish-edit {
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+  background-color: #ff6347;
+  margin-left: 10px;
 }
