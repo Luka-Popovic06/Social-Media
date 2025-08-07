@@ -92,6 +92,13 @@ domElements.postsList.addEventListener('click', function (e) {
     likesDisplay.textContent = `${selectComment.getLikesArray().length} likes`;
     selectComment.showLikesOnScrean(selectComment.getLikesArray());
     whoLikeBox.textContent = selectComment.getWhoLikeComment();
+  } else if (e.target.closest('.btn-edit')) {
+    const editBtn = e.target.closest('.btn-edit');
+    const postElement = editBtn.closest('.post-item');
+    const post = postElement.id;
+    manager.findPost(post);
+    const selectedPost = manager.getSelectPost();
+    editMode(selectedPost);
   }
 });
 
