@@ -20,6 +20,30 @@ export function extractDateParts(date) {
     milliseconds,
   };
 }
+export function formatTimeAgo(d1, d2) {
+  let text;
+  if (d1.year !== d2.year) {
+    const diff = Math.abs(d1.year - d2.year);
+    text = `about ${diff} year${diff === 1 ? '' : 's'} ago`;
+  } else if (d1.month !== d2.month) {
+    const diff = Math.abs(d1.month - d2.month);
+    text = `${diff} month${diff === 1 ? '' : 's'} ago`;
+  } else if (d1.day !== d2.day) {
+    const diff = Math.abs(d1.day - d2.day);
+    text = `${diff} day${diff === 1 ? '' : 's'} ago`;
+  } else if (d1.hour !== d2.hour) {
+    const diff = Math.abs(d1.hour - d2.hour);
+    text = `about ${diff} hour${diff === 1 ? '' : 's'} ago`;
+  } else if (d1.minute !== d2.minute) {
+    const diff = Math.abs(d1.minute - d2.minute);
+    text = `${diff} minute${diff === 1 ? '' : 's'} ago`;
+  } else if (d1.seconds !== d2.seconds) {
+    text = `less than a minute ago`;
+  } else if (d1.milliseconds !== d2.milliseconds) {
+    text = `less than a minute ago`;
+  }
+  return text;
+}
 
 //Editovanje teksta
 
