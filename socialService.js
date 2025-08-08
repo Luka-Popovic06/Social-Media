@@ -79,6 +79,12 @@ export function editMode(post) {
   });
 }
 
+export function finishEditMode(post, postText) {
+  const text = post.querySelector('.post-text-box');
+  text.innerHTML = '';
+  const html = `<p class="post-text">${postText}</p>`;
+  text.insertAdjacentHTML('afterbegin', html);
+}
 //Friends
 export function makeFriend(img, alt, name) {
   const html = `<li class="friend">
