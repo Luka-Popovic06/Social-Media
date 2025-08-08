@@ -42,10 +42,42 @@ export function formatTimeAgo(d1, d2) {
   } else if (d1.milliseconds !== d2.milliseconds) {
     text = `less than a minute ago`;
   }
+
   return text;
 }
 
 //Editovanje teksta
+export function editMode(post) {
+  const selectedPost = document.getElementById(post.getPostId());
+  const text = selectedPost.querySelector('.post-text-box');
+
+  text.innerHTML = '';
+  const html = `<input type="text" class="edit-input"/>
+  <button type="button" class="finish-edit">✔️</button>
+  <button type="button" class="cancel-btn">❌</button>`;
+  text.insertAdjacentHTML('afterbegin', html);
+
+  const input = text.querySelector('.edit-input');
+  input.value = `${post.getPostText()}`;
+  let inputText;
+
+  input.addEventListener('input', function (e) {
+    inputText = e.target.value;
+  });
+
+  const btnFinish = selectedPost.querySelector('.finish-edit');
+  btnFinish.addEventListener('click', function () {
+    post.setPostText(inputText);
+    finishEditMode(selectedPost, inputText);
+    const edited = selectedPost.querySelector('.text-edited');
+    edited.classList.remove('hidden');
+  });
+
+  const cancel = selectedPost.querySelector('.cancel-btn');
+  cancel.addEventListener('click', function () {
+    finishEditMode(selectedPost, post.getPostText());
+  });
+}
 
 //Friends
 export function makeFriend(img, alt, name) {
