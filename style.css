@@ -11,3 +11,20 @@ body {
   background-color: #f4f6f9;
   color: #333;
 }
+
+/* Loader */
+.loader {
+  border: 8px solid #e9ecf3;
+  border-top: 8px solid #4c6ef5;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin 1s linear infinite;
+  margin: 350px auto;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
