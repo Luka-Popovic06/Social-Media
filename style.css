@@ -28,3 +28,48 @@ body {
     transform: rotate(360deg);
   }
 }
+
+/* Navigation */
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(90deg, #4c6ef5, #5f3dc4);
+  padding: 12px 20px;
+  color: white;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  border-radius: 25px;
+  padding: 6px 14px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.find-friends {
+  background: transparent;
+  border: none;
+  font-size: 16px;
+  margin-left: 8px;
+}
+
+.find-friends:focus {
+  outline: none;
+}
+
+.search-icon {
+  width: 18px;
+  height: 18px;
+  opacity: 0.7;
+}
+
+.luka-img {
+  height: 48px;
+  width: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid white;
+}
