@@ -112,3 +112,33 @@ main {
   height: 100%;
   object-fit: cover;
 }
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 7px;
+  padding-top: 55px;
+  padding-bottom: 25px;
+  background-color: white;
+  border: 1px solid #4c6ef5;
+  border-top: none;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.user-info-mini-box {
+  position: relative;
+  text-align: center;
+  width: 190px;
+}
+
+.user-name {
+  font-size: 26px;
+  font-weight: 700;
+}
+
+.user-adres {
+  font-size: 15px;
+  color: #666;
+}
