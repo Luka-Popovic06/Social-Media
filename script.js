@@ -51,7 +51,7 @@ domElements.postsList.addEventListener('click', function (e) {
             like.lastName === userName.lastName
         )
     ) {
-      selectIcon.style.color = '#3c42e0';
+      selectIcon.style.color = '#fff';
       selectedPost.getLikes().pop();
     } else {
       selectIcon.style.color = '#ff6347';

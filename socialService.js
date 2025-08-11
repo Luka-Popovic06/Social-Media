@@ -217,6 +217,16 @@ export function makeComment(
                   </div>
                 </li>`;
   commentsList.insertAdjacentHTML('afterbegin', html);
+  const like = commentsList.querySelector('.likes-count');
+  const peopleWhoLike = commentsList.querySelector('.whoLike');
+  like.addEventListener('mouseenter', function () {
+    if (likesNumber > 0) {
+      peopleWhoLike.classList.remove('hidden');
+    }
+  });
+  like.addEventListener('mouseleave', function () {
+    peopleWhoLike.classList.add('hidden');
+  });
 }
 //toggle
 //editovanje komentara
