@@ -213,3 +213,94 @@ main {
   display: flex;
   flex-wrap: wrap;
 }
+
+h4 {
+  font-size: 24px;
+  margin: 8px 25px;
+}
+
+.number_of_friends {
+  font-size: 16px;
+  margin-left: 25px;
+  margin-bottom: 20px;
+}
+
+.friend {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.friend-paragraph {
+  font-size: 12px;
+}
+
+.friend-img {
+  height: 100px;
+  width: 123px;
+  align-self: center;
+  justify-self: center;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+/* Posts */
+.posts {
+  list-style-type: none;
+}
+
+.post-item {
+  width: 520px;
+  background-color: white;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  padding: 16px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.08);
+}
+
+.post-owner-info {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.img-post_owner {
+  height: 50px;
+  width: 50px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.name_date-box {
+  display: flex;
+  flex-direction: column;
+  margin-left: 8px;
+}
+
+.post-owner-name {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.post-date {
+  font-size: 12px;
+  color: #888;
+}
+
+.post-text {
+  margin: 16px 0;
+  font-size: 20px;
+  font-weight: 500;
+  color: #333;
+}
+.likes-paragraph {
+  font-size: 12.5px;
+}
+.likes-comments-number {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13.5px;
+}
