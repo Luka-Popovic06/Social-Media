@@ -521,3 +521,64 @@ h4 {
   padding: 4px 10px;
   border-radius: 6px;
 }
+
+.edit-form {
+  width: 100%;
+}
+
+.edit-input {
+  overflow-wrap: break-word;
+  color: #333;
+  margin: 17px 0px;
+  font-size: 20px;
+  font-weight: 500;
+  width: 80%;
+}
+
+.edit-input:focus {
+  outline-color: #4c6ef5;
+}
+.correct {
+  width: 19px;
+  margin-top: 2px;
+}
+.cancel {
+  width: 20px;
+  margin-top: 2px;
+}
+/*.comment-stats:hover .whoLike {
+  display: block;
+}*/
+.friends_list {
+  list-style: none;
+  position: absolute;
+  top: 60px;
+  left: 20px;
+  background-color: #fff;
+  border-radius: 16px;
+  min-width: 230px;
+}
+.friend_box {
+  display: flex;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 8px;
+  gap: 8px;
+}
+.friend_box:hover {
+  background-color: #e9ecf3;
+}
+.friend_img {
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  object-fit: cover;
+}
+.friend_name {
+  font-size: 18px;
+  align-self: center;
+  color: #333;
+}
+.hidden {
+  display: none;
+}
