@@ -96,6 +96,7 @@ export function finishEditMode(post, postText) {
   text.insertAdjacentHTML('afterbegin', html);
 }
 //Friends
+
 export function makeFriend(img, alt, name) {
   const html = `<li class="friend">
               <img

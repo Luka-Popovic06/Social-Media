@@ -7,6 +7,7 @@ import {
   extractDateParts,
   formatTimeAgo,
   editMode,
+  createFriendElement,
 } from './socialService.js';
 import {
   socialManager,
@@ -189,6 +190,24 @@ domElements.postsList.addEventListener('submit', function (e) {
     peopleWhoLike.classList.add('hidden');
   });
 });
+
+domElements.findFriends.addEventListener('input', function (e) {
+  let text = e.target.value;
+  const allFriends = manager.getFriends();
+  const filteredFriends = allFriends.filter(friend =>
+    friend.getFriendName().toLowerCase().includes(text.toLowerCase())
+  );
+  domElements.searchFriends.innerHTML = '';
+  if (!text) return;
+  filteredFriends.forEach(function (friend) {
+    createFriendElement(
+      friend.getImage(),
+      friend.getAlternativText(),
+      friend.getFriendName()
+    );
+  });
+});
+
 //time
 function updateAllPostTimes() {
   const allPosts = manager.getPosts();

@@ -292,8 +292,10 @@ h4 {
 
 .post-text {
   margin: 16px 0;
+  width: 90%;
   font-size: 20px;
   font-weight: 500;
+  overflow-wrap: break-word;
   color: #333;
 }
 .likes-paragraph {
@@ -434,6 +436,7 @@ h4 {
   font-size: 13px;
   background-color: #f0f2ff;
   border-radius: 14px;
+  overflow-wrap: break-word;
   padding: 6px 10px;
 }
 
