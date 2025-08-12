@@ -96,7 +96,19 @@ export function finishEditMode(post, postText) {
   text.insertAdjacentHTML('afterbegin', html);
 }
 //Friends
-
+export function createFriendElement(img, alt, friendName) {
+  const html = `
+  <li class="friend_box">
+            <img
+              class="friend_img"
+              src="${img}"
+              alt="${alt}"
+            />
+            <p class="friend_name">${friendName}</p>
+          </li>
+  `;
+  domElements.searchFriends.insertAdjacentHTML('afterbegin', html);
+}
 export function makeFriend(img, alt, name) {
   const html = `<li class="friend">
               <img
