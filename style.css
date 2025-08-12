@@ -142,3 +142,74 @@ main {
   font-size: 15px;
   color: #666;
 }
+
+/* New post */
+.new-post {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.post-form {
+  display: flex;
+  width: 600px;
+  background-color: white;
+  padding: 8px;
+  border-radius: 15px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.05);
+}
+
+.post-input {
+  flex: 1;
+  padding: 8px 12px;
+  font-size: 16px;
+  border: none;
+  background-color: #f4f6f9;
+  border-radius: 10px;
+}
+
+.post-input:focus {
+  outline: 2px solid #4c6ef5;
+}
+
+.submit-btn {
+  background-color: #4c6ef5;
+  color: white;
+  font-weight: 600;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 10px;
+  margin-left: 8px;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.submit-btn:hover {
+  background-color: #364fc7;
+}
+
+/* Friends and comments */
+.friends-section {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  background-color: #f8f9ff;
+  padding: 20px 0;
+}
+
+/* Friends */
+.friends {
+  border-radius: 12px;
+  padding: 15px;
+  background-color: #fff;
+  width: 450px;
+  height: 370px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.05);
+}
+
+.friends-list {
+  justify-content: space-evenly;
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+}

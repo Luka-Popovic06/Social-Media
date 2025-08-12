@@ -53,8 +53,14 @@ export function editMode(post) {
 
   text.innerHTML = '';
   const html = `<input type="text" class="edit-input"/>
-  <button type="button" class="finish-edit">✔️</button>
-  <button type="button" class="cancel-btn">❌</button>`;
+  <button type="button" class="finish-edit"><svg class="correct" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+  <path fill-rule="evenodd" d="M19.916 4.626a.75.75 0 0 1 .208 1.04l-9 13.5a.75.75 0 0 1-1.154.114l-6-6a.75.75 0 0 1 1.06-1.06l5.353 5.353 8.493-12.74a.75.75 0 0 1 1.04-.207Z" clip-rule="evenodd" />
+</svg>
+</button>
+  <button type="button" class="cancel-btn"><svg class="cancel" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+  <path fill-rule="evenodd" d="M5.47 5.47a.75.75 0 0 1 1.06 0L12 10.94l5.47-5.47a.75.75 0 1 1 1.06 1.06L13.06 12l5.47 5.47a.75.75 0 1 1-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 0 1-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
+</svg>
+</button>`;
   text.insertAdjacentHTML('afterbegin', html);
 
   const input = text.querySelector('.edit-input');
@@ -67,10 +73,14 @@ export function editMode(post) {
 
   const btnFinish = selectedPost.querySelector('.finish-edit');
   btnFinish.addEventListener('click', function () {
-    post.setPostText(inputText);
-    finishEditMode(selectedPost, inputText);
-    const edited = selectedPost.querySelector('.text-edited');
-    edited.classList.remove('hidden');
+    if (!inputText) {
+      finishEditMode(selectedPost, post.getPostText());
+    } else {
+      post.setPostText(inputText);
+      finishEditMode(selectedPost, inputText);
+      const edited = selectedPost.querySelector('.text-edited');
+      edited.classList.remove('hidden');
+    }
   });
 
   const cancel = selectedPost.querySelector('.cancel-btn');
@@ -208,7 +218,10 @@ export function makeComment(
                     <p class="comment-owner">${firstName} ${lastName}</p>
                     <p class="comment-text">${comment}</p>
                     <div class="comment-actions">
-                      <button type="button" class="like-btn_comment">❤️ Like</button>
+                      <button type="button" class="like-btn_comment"><svg class="heart-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
+</svg>
+ </button>
                       <div class="comment-stats">
                         <p class="likes-count">${likesNumber} Likes</p>
                         <p class="whoLike hidden">${showLikesOnScrean}</p>

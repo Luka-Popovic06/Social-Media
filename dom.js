@@ -1,4 +1,6 @@
 export const domElements = {
+  searchFriends: document.querySelector('.friends_list'),
+  findFriends: document.querySelector('.find-friends'),
   loader: document.querySelector('.loader'),
   friendsList: document.querySelector('.friends-list'),
   postsList: document.querySelector('.posts'),
