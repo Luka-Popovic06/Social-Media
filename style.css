@@ -304,3 +304,149 @@ h4 {
   justify-content: space-between;
   font-size: 13.5px;
 }
+
+.img-profile_small {
+  height: 50px;
+  width: 50px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.comments-paragraph {
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.comments-paragraph:hover {
+  color: #4c6ef5;
+}
+
+/* Buttons */
+.post-btn {
+  display: flex;
+  justify-content: space-between;
+  margin: 8px 0 16px;
+  width: 100%;
+}
+
+.icon-btn {
+  color: #fff;
+  width: 20px;
+  height: 20px;
+}
+
+.comment-btn,
+.like-btn {
+  color: #f4f6f9;
+  display: flex;
+  gap: 10px;
+  width: 49%;
+  align-items: center;
+  justify-content: center;
+  background-color: #4c6ef5;
+  height: 27px;
+  cursor: pointer;
+  font-size: 14px;
+  border-radius: 8px;
+  transition: 0.3s;
+  border: none;
+}
+
+.comment-btn:hover,
+.like-btn:hover {
+  background-color: #364fc7;
+}
+
+/* Add comment */
+.add-comment {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.comment-form {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+}
+
+.write-comment-input {
+  background-color: #f4f6f9;
+  padding-left: 9px;
+  margin-left: 8px;
+  height: 32px;
+  width: 70%;
+  font-size: 14px;
+  border: none;
+  border-radius: 15px;
+}
+
+.write-comment-input:focus {
+  outline: 2px solid #4c6ef5;
+}
+
+.add-comment-btn {
+  background-color: #4c6ef5;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  width: 100px;
+  border-radius: 8px;
+  margin: 0px 8px;
+  border: none;
+  transition: 0.3s;
+}
+
+.add-comment-btn:hover {
+  background-color: #364fc7;
+}
+
+.comments-list {
+  list-style: none;
+  padding-left: 16px;
+}
+
+.comment-img {
+  border-radius: 50%;
+  height: 45px;
+  width: 45px;
+  object-fit: cover;
+}
+
+.comment-item {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.comment-info {
+  padding-left: 15px;
+  width: 80%;
+}
+
+.comment-owner {
+  font-size: 14px;
+  margin-bottom: 4px;
+  font-weight: 600;
+}
+
+.comment-text {
+  font-size: 13px;
+  background-color: #f0f2ff;
+  border-radius: 14px;
+  padding: 6px 10px;
+}
+
+.comment-actions {
+  position: relative;
+  margin-top: 6px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 12px;
+}
+
+.like-btn_comment {
+  background-color: white;
+  border: none;
+}
