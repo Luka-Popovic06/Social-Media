@@ -291,3 +291,9 @@ export function setupCommentInput(comment, selectedComment) {
     selectedComment.setCommentText(inputText);
   });
 }
+
+export function finishCommentEditMode(comment, commentText) {
+  const text = comment.querySelector('.comment-text');
+  text.innerHTML = '';
+  text.textContent = `${commentText}`;
+}
