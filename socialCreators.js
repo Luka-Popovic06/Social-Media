@@ -136,7 +136,7 @@ export function commentCreator(
   let likesOnComments = [];
   let id = crypto.randomUUID();
   let friends;
-
+  const setCommentText = newText => (commentText = newText);
   const getId = () => id;
   const getFirstName = () => firstName;
   const getLastName = () => lastName;
@@ -162,5 +162,6 @@ export function commentCreator(
     getLikesArray,
     showLikesOnScrean,
     getWhoLikeComment,
+    setCommentText,
   };
 }

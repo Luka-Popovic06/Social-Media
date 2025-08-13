@@ -8,6 +8,7 @@ import {
   formatTimeAgo,
   editMode,
   createFriendElement,
+  startCommentEditMode,
 } from './socialService.js';
 import {
   socialManager,

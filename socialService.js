@@ -62,7 +62,7 @@ export function editMode(post) {
 </svg>
 </button>`;
   text.insertAdjacentHTML('afterbegin', html);
-
+  //
   const input = text.querySelector('.edit-input');
   input.value = `${post.getPostText()}`;
   let inputText;
@@ -70,7 +70,7 @@ export function editMode(post) {
   input.addEventListener('input', function (e) {
     inputText = e.target.value;
   });
-
+  //
   const btnFinish = selectedPost.querySelector('.finish-edit');
   btnFinish.addEventListener('click', function () {
     if (!inputText) {
@@ -229,7 +229,19 @@ export function makeComment(
                   />
                   <div class="comment-info">
                     <p class="comment-owner">${firstName} ${lastName}</p>
+                    <div class="comment_minibox">
                     <p class="comment-text">${comment}</p>
+                    ${
+                      firstName === 'Luka'
+                        ? `<button type="button" class="comment_btn_edit">
+                <i ><svg class="pencil-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+  <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L6.832 19.82a4.5 4.5 0 0 1-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 0 1 1.13-1.897L16.863 4.487Zm0 0L19.5 7.125" />
+</svg>
+</i>
+              </button>`
+                        : ''
+                    }                    
+                    </div>
                     <div class="comment-actions">
                       <button type="button" class="like-btn_comment"><svg class="heart-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
   <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />

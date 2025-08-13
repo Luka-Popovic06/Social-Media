@@ -437,9 +437,35 @@ h4 {
   background-color: #f0f2ff;
   border-radius: 14px;
   overflow-wrap: break-word;
-  padding: 6px 10px;
+  padding: 6px 19px;
 }
+.comment_minibox {
+  position: relative;
+}
+.pencil-icon {
+  width: 15px;
+  height: 15px;
+  color: #333;
+}
+.pencil-icon:hover {
+  color: #ff6347;
+}
+.comment_btn_edit {
+  cursor: pointer;
+  width: 0px;
 
+  border: none;
+  position: absolute;
+  top: 6px;
+  right: 20px;
+}
+.edit-my-comment {
+  background-color: #f0f2ff;
+  width: 90%;
+  border: 1px solid #333;
+  height: 100%;
+  padding-left: 2px;
+}
 .comment-actions {
   position: relative;
   margin-top: 6px;
@@ -582,6 +608,7 @@ h4 {
   align-self: center;
   color: #333;
 }
+
 .hidden {
   display: none;
 }
