@@ -281,3 +281,13 @@ export function startCommentEditMode(commentId, selectedComment) {
     setupCommentInput(comment, selectedComment);
   }
 }
+export function setupCommentInput(comment, selectedComment) {
+  const input = comment.querySelector('.edit-my-comment');
+  input.value = `${selectedComment.getText()}`;
+  let inputText;
+
+  input.addEventListener('input', function (e) {
+    inputText = e.target.value;
+    selectedComment.setCommentText(inputText);
+  });
+}
