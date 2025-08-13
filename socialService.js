@@ -268,3 +268,16 @@ export function makeComment(
 }
 //toggle
 //editovanje komentara
+export function startCommentEditMode(commentId, selectedComment) {
+  const comment = document.getElementById(commentId);
+  const textComment = comment.querySelector('.comment-text');
+  if (comment.querySelector('.edit-my-comment') !== null) {
+    finishCommentEditMode(comment, selectedComment.getText());
+    return;
+  } else if (comment.querySelector('.edit-my-comment') === null) {
+    textComment.innerHTML = '';
+    const html = `<input type="text" class="edit-my-comment"/>`;
+    textComment.insertAdjacentHTML('afterbegin', html);
+    setupCommentInput(comment, selectedComment);
+  }
+}
