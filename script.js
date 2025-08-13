@@ -118,6 +118,16 @@ domElements.postsList.addEventListener('click', function (e) {
     manager.findPost(post);
     const selectedPost = manager.getSelectPost();
     editMode(selectedPost);
+  } else if (e.target.closest('.comment_btn_edit')) {
+    const editBtn = e.target.closest('.comment_btn_edit');
+    const postElement = editBtn.closest('.post-item');
+    const comment = editBtn.closest('.comment-item');
+    const post = postElement.id;
+    manager.findPost(post);
+    const selectedPost = manager.getSelectPost();
+    selectedPost.findComment(comment.id);
+    const selectedComment = selectedPost.getComment();
+    startCommentEditMode(comment.id, selectedComment);
   }
 });
 
