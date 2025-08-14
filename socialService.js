@@ -266,12 +266,13 @@ export function makeComment(
     peopleWhoLike.classList.add('hidden');
   });
 }
-//toggle
-//editovanje komentara
+
 export function startCommentEditMode(commentId, selectedComment) {
   const comment = document.getElementById(commentId);
   const textComment = comment.querySelector('.comment-text');
   if (comment.querySelector('.edit-my-comment') !== null) {
+    const input = comment.querySelector('.edit-my-comment');
+    if (input.value === '') return;
     finishCommentEditMode(comment, selectedComment.getText());
     return;
   } else if (comment.querySelector('.edit-my-comment') === null) {

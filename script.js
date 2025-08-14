@@ -62,7 +62,11 @@ domElements.postsList.addEventListener('click', function (e) {
     selectedPost.formatLikes(selectedPost.getLikes());
     const likesParagraph = postElement.querySelector('.likes-paragraph');
     likesParagraph.textContent = selectedPost.getWhoLikePost();
-    //comment likes
+  } else if (e.target.closest('.comment-btn')) {
+    const btn = e.target.closest('.comment-btn');
+    const postElement = btn.closest('.post-item');
+    const input = postElement.querySelector('.write-comment-input');
+    input.focus();
   } else if (e.target.closest('.like-btn_comment')) {
     const likeBtn = e.target.closest('.like-btn_comment');
     const commentElement = likeBtn.closest('.comment-item');
@@ -201,7 +205,7 @@ domElements.postsList.addEventListener('submit', function (e) {
     peopleWhoLike.classList.add('hidden');
   });
 });
-
+//friends search
 domElements.findFriends.addEventListener('input', function (e) {
   let text = e.target.value;
   const allFriends = manager.getFriends();
