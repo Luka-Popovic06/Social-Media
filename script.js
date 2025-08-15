@@ -22,7 +22,7 @@ window.addEventListener('load', function () {
     domElements.loader.classList.add('hidden');
     domElements.nav.classList.remove('hidden');
     domElements.main.classList.remove('hidden');
-  }, 100);
+  }, 2460);
   setInterval(updateAllPostTimes, 60 * 1000);
 });
 
