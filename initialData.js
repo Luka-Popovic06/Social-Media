@@ -4,7 +4,7 @@ import {
   commentCreator,
 } from './socialCreators.js';
 import { makeComment, makeFriend, makePost } from './socialService.js';
-import { friends, user } from './input.js';
+import { friends, user } from './info.js';
 
 export function loadDefaultFriends(manager) {
   if (manager.getFriends().length > 0) return;

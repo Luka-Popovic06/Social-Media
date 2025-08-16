@@ -15,7 +15,8 @@ import {
   postCreator,
   commentCreator,
 } from './socialCreators.js';
-import { userName, postText } from './input.js';
+import { userName } from './info.js';
+import { postText } from './input.js';
 const manager = socialManager();
 window.addEventListener('load', function () {
   setTimeout(function () {
